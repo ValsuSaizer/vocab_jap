@@ -2,17 +2,28 @@ from random import randint
 from csv import reader,writer
 from os import listdir
 
+print( "Bienvenu sur ce progamme d'entrainement au vocabulaire japonais !" )
 while True:
-    choice = input( "Est-ce que tu veux réviser une fiche (1) ou toutes les fiches (2) ? " )
-    if int( choice ) not in range(1,3):
-        print( "Ayonyonyon... ce n'est pas un choix valide :) Recommence s'il te plait." )
+    print( "Comment souhaites-tu travailler ?\n1 - Travailler une seule fiche ?\n2 - Travailler toutes les fiches à la fois ?\n3 - Travailler une selection de fiche ?" )
+    try:
+        choice = int( input( "Choix: " ) )
+    except ValueError:
+        print( "Hey, ce n'est pas un choix valide." )
+        continue
+    if choice not in range(1,4):
+        print( "Ayonyonyon... essaie une des valeurs proposées s'il te plait." )
         continue
     break
 
+if choice == 1:
+    folder = listdir( "fiches" )
+    for x in folder:
+        print( x )
+    choice = 
+elif choice == 2:
 
-folder = listdir( "fiches" )
-for x in folder:
-    print( x )
+elif choice == 3:
+
 
 
 """
