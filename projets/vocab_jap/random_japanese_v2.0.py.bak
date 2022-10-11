@@ -2,6 +2,10 @@ from random import randint
 from csv import reader,writer
 from os import listdir
 
+#Fonction de sélection aléatoire
+
+
+
 #Premier prompt avec le premier choix et boucle try pour les exceptions.
 print( "Bienvenu sur ce progamme d'entrainement au vocabulaire japonais !" )
 while True:
@@ -16,9 +20,9 @@ while True:
         continue
     break
 
-#Menu dans le cas d'une seule fiche de vocabulaire.
+####Mode numero 1 : une seule fiche de vocabulaire
 if choice == 1:
-    folder = listdir( "fiches" )
+    folder = listdir( "./fiches" )
     print( "Voici les fiches disponible." )
     for x in folder:
         print( "{} - {}".format( folder.index(x) + 1, x ) )
@@ -34,6 +38,7 @@ if choice == 1:
         break
     sheet = "./fiches/" + folder[choice-1]
     print( sheet )
+    
 #Ouverture de la fiche de vocabulaire avec la boucle.
     fp = open( sheet, newline='' )
     csvreader = reader( fp )
@@ -41,15 +46,39 @@ if choice == 1:
     words = list( csvreader )
     while True:
         randindex = randint( 0, len( words ) - 1 )
-        saisie = input( "Quel est le japonais de : " + words[randindex][0] + "\n" )
-        if saisie == "list":
+        saisie = input( "Quel est le japonais pour : " + words[randindex][0] + "\n" )
+        if saisie == "exit":
+            break
+        elif saisie == "list":
             for x in words:
                 print( x[0] )
         continue
-        if saisie == "exit":
-            break
     fp.close()
-#elif choice == 2:
+    
+####Mode 2 : toutes les fiches à la fois
+elif choice == 2:
+    words = []
+    folder = listdir( "./fiches" )
+    for entry in folder:
+        fp = open( "./fiches/" + entry, newline='' )
+        csvreader = reader( fp )
+        for line in csvreader:
+            words.append( line )
+        print( words )
+        fp.close()
+        
+#Sélection au hasard dans la liste de mots
+while True:
+    randindex = randint( 0, len( words ) - 1 )
+    saisie = input( "Quel est le japonais pour : " + words[randindex][0] + "\n" )
+    if saisie == "exit":
+        break
+    elif saisie == "list":
+        for x in words:
+            print( x[0] )
+    continue
+fp.close()        
+
 
 #elif choice == 3:
 
