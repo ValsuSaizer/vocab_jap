@@ -93,7 +93,7 @@ def main():
             fp.close()
         
 #Sélection au hasard dans la liste de mots
-        randWord( words )     
+        RandWord( words )     
 
 ####Mode 3 : Sélection de fiche de vocabulaire
 #elif choice == 3:
