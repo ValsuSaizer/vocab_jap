@@ -1,6 +1,21 @@
 from random import randint
-from csv import reader
+from csv import reader,writer
 from os import listdir
+
+#Fonction de sélection aléatoire
+def RandWord( words )
+randindex = randint( 0, len( words ) - 1 )
+    while True:
+        saisie = input( "Quel est le japonais pour : " + words[randindex][0] + "\n" )
+        if saisie == "exit":
+            exit()
+        elif saisie == "list":
+            for x in words:
+                print( x[0] )
+            continue
+        elif saisie == "menu":
+            return 
+
 
 #Premier prompt avec le premier choix et boucle try pour les exceptions.
 print( "Bienvenu sur ce progamme d'entrainement au vocabulaire japonais !" )
