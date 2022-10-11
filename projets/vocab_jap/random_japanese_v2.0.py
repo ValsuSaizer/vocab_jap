@@ -32,10 +32,23 @@ if choice == 1:
             print( "Ayonyonyon... essaie une des valeurs proposées s'il te plait    ." )
             continue
         break
+    sheet = "./fiches/" + folder[choice-1]
+    print( sheet )
 #Ouverture de la fiche de vocabulaire avec la boucle.
-
-
-
+    fp = open( sheet, newline='' )
+    csvreader = reader( fp )
+    #print( len( csvreader ) )
+    words = list( csvreader )
+    while True:
+        randindex = randint( 0, len( words ) - 1 )
+        saisie = input( "Quel est le japonais pour : " + words[randindex][0] + "\n" )
+        if saisie == "list":
+            for x in words:
+                print( x[0] )
+        continue
+        if saisie == "exit":
+            break
+    fp.close()
 #elif choice == 2:
 
 #elif choice == 3:
