@@ -80,7 +80,24 @@ def main():
             randWord( words )
 
 ####Mode 3 : Sélection de fiche de vocabulaire
-#elif choice == 3:
+        elif choice == 3:
+            selection = []
+            folder = listdir( "./fiches" )
+            print( "Voici les fiches disponible." )
+            for x in folder:
+                print( "{} - {}".format( folder.index(x) + 1, x ) )
+            while True:
+                try:
+                    choice = int( input( "Choix: " ) )
+                    if choice == "":
+                        break
+                except ValueError:
+                    print( "Hey, ce n'est pas un choix valide." )
+                    continue
+                if choice not in range(1, len( folder ) + 1 ):
+                    print( "Ayonyonyon... essaie une des valeurs proposées s'il te plait    ." )
+                    continue
+                break
 
 if __name__ == '__main__':
     main()
