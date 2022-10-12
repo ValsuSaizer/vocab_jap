@@ -88,16 +88,28 @@ def main():
                 print( "{} - {}".format( folder.index(x) + 1, x ) )
             while True:
                 try:
-                    choice = int( input( "Choix: " ) )
-                    if choice == "":
+                    choice = input( "Choix: " ) 
+                    if choice == "ok":
                         break
+                    elif int( choice ) not in range(1, len( folder ) + 1 ):
+                        print( "Ayonyonyon... essaie une des valeurs proposées s'il te plait    ." )
+                        continue
                 except ValueError:
                     print( "Hey, ce n'est pas un choix valide." )
                     continue
-                if choice not in range(1, len( folder ) + 1 ):
-                    print( "Ayonyonyon... essaie une des valeurs proposées s'il te plait    ." )
-                    continue
-                break
-
+                selection.append( folder.index( int( choice ) ) )
+                print( selection )
+                continue
+            print( choice )
+"""
+#Sélection au hasard
+            words = []
+            fp = open( sheet, newline='', encoding="latin-1" )
+            csvreader = reader( fp )
+            for line in csvreader:
+                words.append( line )
+    #print( len( csvreader ) )
+            randWord( words )
+"""
 if __name__ == '__main__':
     main()
