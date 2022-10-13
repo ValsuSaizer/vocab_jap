@@ -100,15 +100,6 @@ def main():
                 print( words )
 #Sélection au hasard dans la liste de mots
             randWord( words )
-"""
-#Sélection au hasard
-            words = []
-            fp = open( sheet, newline='', encoding="latin-1" )
-            csvreader = reader( fp )
-            for line in csvreader:
-                words.append( line )
-    #print( len( csvreader ) )
-            randWord( words )
-"""
+
 if __name__ == '__main__':
     main()
