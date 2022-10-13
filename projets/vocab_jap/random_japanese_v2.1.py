@@ -81,26 +81,25 @@ def main():
 
 ####Mode 3 : Sélection de fiche de vocabulaire
         elif choice == 3:
-            selection = []
+            words = []
             folder = listdir( "./fiches" )
-            print( "Voici les fiches disponible." )
             for x in folder:
                 print( "{} - {}".format( folder.index(x) + 1, x ) )
+            print( "Fais ta sélection de fiches, saisi 'ok' pour valider" )
             while True:
-                try:
-                    choice = input( "Choix: " ) 
-                    if choice == "ok":
-                        break
-                    elif int( choice ) not in range(1, len( folder ) + 1 ):
-                        print( "Ayonyonyon... essaie une des valeurs proposées s'il te plait    ." )
-                        continue
-                except ValueError:
-                    print( "Hey, ce n'est pas un choix valide." )
+                choice = input( "Choix : " )
+                if choice == "ok":
+                    break
+                elif int( choice ) not in range( 1, len( folder ) + 1 ):
+                    print( "Ayonyonyon... essaie une des valeurs proposées s'il te plait    ." )
                     continue
-                selection.append( folder.index( int( choice ) ) )
-                print( selection )
-                continue
-            print( choice )
+                fp = open( "./fiches/" + folder[ int( choice ) - 1 ], newline='', encoding="latin-1" )
+                csvreader = reader( fp )
+                for line in csvreader:
+                    words.append( line )
+                print( words )
+#Sélection au hasard dans la liste de mots
+            randWord( words )
 """
 #Sélection au hasard
             words = []
