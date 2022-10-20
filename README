@@ -1,5 +1,1 @@
-This repository stores my work on a custom python program which helps me training my japanese vocabulary
-
-Versions:
-	- 1.x : hard-codedd vocabulary in .py files
-	- 2.x : Use of .csv files and functions
+3.0 debut of OOP for csv sheets
