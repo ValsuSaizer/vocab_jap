@@ -10,7 +10,7 @@ def menuDebut():
         try:
             decision = int( input( "Choix: " ) )
         except ValueError:
-            if decision == "exit":
+            if decision == "exit" or decision == "":
                 exit()
             print( "Hey, ce n'est pas un choix valide." )
             continue
@@ -21,9 +21,16 @@ def menuDebut():
 
 #Fonction de sélection aléatoire
 def randWord( words ):
+    words_remise = words
+    remise = input( "Avec ou sans remise ?" )
     while True:
-        randindex = randint( 0, len( words ) - 1 )
-        saisie = input( "Quel est le japonais pour : " + words[randindex][0] + "\n" )
+        if len( words_remise ) == 0:
+            print( "Tu as vu tous les mots de la liste." )
+            return None
+        randindex = randint( 0, len( words_remise ) - 1 )
+        saisie = input( "Quel est le japonais pour : " + words_remise[randindex][0] + "\n" )
+        if remise == "1":
+            words_remise.pop(randindex)
         if saisie == "exit":
             exit()
         elif saisie == "list":
