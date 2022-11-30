@@ -1,1 +1,10 @@
 3.0 debut of OOP for csv sheets
+Affichage de la liste:
+	- Création d'un objet fiche pour appel object(x,y,z) pour chaque entrée
+	- Objet fiche -> nom,chemin,contenu
+
+pour la lecture d'une fiche --> consulter l'objet
+
+pour la lecture de toutes les fiches --> création d'un super objet fiche avec toutes les fiches en contenu
+
+Création de l'objet fiche au moment de la séléction
